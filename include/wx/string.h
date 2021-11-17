@@ -210,9 +210,9 @@ public:
     inline wxUniChar operator[](size_t n) const;
     wxUniChar operator[](int n) const { return operator[](size_t(n)); }
     wxUniChar operator[](long n) const { return operator[](size_t(n)); }
-#ifndef wxSIZE_T_IS_UINT
+//#ifndef wxSIZE_T_IS_UINT
     wxUniChar operator[](unsigned int n) const { return operator[](size_t(n)); }
-#endif // size_t != unsigned int
+//#endif // size_t != unsigned int
 
     // These operators are needed to emulate the pointer semantics of c_str():
     // expressions like "wxChar *p = str.c_str() + 1;" should continue to work
