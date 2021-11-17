@@ -1325,7 +1325,7 @@ bool wxFindFileInPath(wxString *pStr, const wxString& szPath, const wxString& sz
 
     // skip path separator in the beginning of the file name if present
     wxString szFile2;
-    if ( wxIsPathSeparator(szFile[0u]) )
+    if ( wxIsPathSeparator(szFile[(size_t)0u]) )
         szFile2 = szFile.Mid(1);
     else
         szFile2 = szFile;
