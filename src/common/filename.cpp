@@ -298,9 +298,9 @@ inline bool IsDOSPathSep(wxUniChar ch)
 static bool IsUNCPath(const wxString& path)
 {
     return path.length() >= 3 && // "\\a" is the shortest UNC path
-                    IsDOSPathSep(path[0u]) &&
-                        IsDOSPathSep(path[1u]) &&
-                            !IsDOSPathSep(path[2u]);
+                    IsDOSPathSep(path[(size_t)0u]) &&
+                        IsDOSPathSep(path[(size_t)1u]) &&
+                            !IsDOSPathSep(path[(size_t)2u]);
 }
 
 // return true if the string looks like a GUID volume path ("\\?\Volume{guid}\")
