@@ -730,7 +730,7 @@ void wxURI::Resolve(const wxURI& base, int flags)
             m_fields |= wxURI_QUERY;
         }
     }
-    else if ( m_path.empty() || m_path[0u] != '/' )
+    else if ( m_path.empty() || m_path[(size_t)0u] != '/' )
     {
         //             if (R.path starts-with "/") then
         //                T.path = remove_dot_segments(R.path);
