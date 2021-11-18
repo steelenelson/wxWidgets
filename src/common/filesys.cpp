@@ -393,9 +393,9 @@ void wxFileSystem::ChangePathTo(const wxString& location, bool is_dir)
         int i, pathpos = -1;
         for (i = m_Path.length()-1; i >= 0; i--)
         {
-            if (m_Path[(unsigned int) i] == wxT('/'))
+            if (m_Path[(size_t) i] == wxT('/'))
             {
-                if ((i > 1) && (m_Path[(unsigned int) (i-1)] == wxT('/')) && (m_Path[(unsigned int) (i-2)] == wxT(':')))
+                if ((i > 1) && (m_Path[(size_t) (i-1)] == wxT('/')) && (m_Path[(size_t) (i-2)] == wxT(':')))
                 {
                     i -= 2;
                     continue;
@@ -406,7 +406,7 @@ void wxFileSystem::ChangePathTo(const wxString& location, bool is_dir)
                     break;
                 }
             }
-            else if (m_Path[(unsigned int) i] == wxT(':')) {
+            else if (m_Path[(size_t) i] == wxT(':')) {
                 pathpos = i;
                 break;
             }
@@ -415,7 +415,7 @@ void wxFileSystem::ChangePathTo(const wxString& location, bool is_dir)
         {
             for (i = 0; i < (int) m_Path.length(); i++)
             {
-                if (m_Path[(unsigned int) i] == wxT(':'))
+                if (m_Path[(size_t) i] == wxT(':'))
                 {
                     m_Path.Remove(i+1);
                     break;
@@ -531,7 +531,7 @@ wxString wxFileSystem::FindFirst(const wxString& spec, int flags)
     m_FindFileHandler = NULL;
 
     for (int i = spec2.length()-1; i >= 0; i--)
-        if (spec2[(unsigned int) i] == wxT('\\')) spec2.GetWritableChar(i) = wxT('/'); // Want to be windows-safe
+        if (spec2[(size_t) i] == wxT('\\')) spec2.GetWritableChar(i) = wxT('/'); // Want to be windows-safe
 
     node = m_Handlers.GetFirst();
     while (node)
