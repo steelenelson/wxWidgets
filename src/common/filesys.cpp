@@ -60,7 +60,7 @@ wxString wxFileSystemHandler::GetMimeTypeFromExt(const wxString& location)
     for (int i = l-1; i >= 0; i--)
     {
         wxChar c;
-        c = loc[(unsigned int) i];
+        c = loc[(size_t) i];
         if ( c == wxT('#') )
             l2 = i + 1;
         if ( c == wxT('.') )
