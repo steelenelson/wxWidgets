@@ -1528,10 +1528,10 @@ public:
       { return at(n); }
     wxUniCharRef operator[](size_t n)
       { return at(n); }
-#ifndef wxSIZE_T_IS_UINT
+// #ifndef wxSIZE_T_IS_UINT
     wxUniCharRef operator[](unsigned int n)
       { return at(n); }
-#endif // size_t != unsigned int
+// #endif // size_t != unsigned int
 
 
     /*
