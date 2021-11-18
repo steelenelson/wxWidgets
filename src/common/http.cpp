@@ -401,7 +401,7 @@ bool wxHTTP::BuildRequest(const wxString& path, const wxString& method)
 
     m_http_response = wxAtoi(tmp_str2);
 
-    switch ( tmp_str2[0u].GetValue() )
+    switch ( tmp_str2[(size_t)0u].GetValue() )
     {
         case wxT('1'):
             /* INFORMATION / SUCCESS */

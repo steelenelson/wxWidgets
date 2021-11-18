@@ -854,14 +854,14 @@ int wxCmdLineParser::Parse(bool showUsage)
         // empty argument or just '-' is not an option but a parameter
         if ( maybeOption && arg.length() > 1 &&
                 // FIXME-UTF8: use wc_str() after removing ANSI build
-                wxStrchr(m_data->m_switchChars.c_str(), arg[0u]) )
+                wxStrchr(m_data->m_switchChars.c_str(), arg[(size_t)0u]) )
         {
             bool isLong;
             wxString name;
             int optInd = wxNOT_FOUND;   // init to suppress warnings
 
             // an option or a switch: find whether it's a long or a short one
-            if ( arg.length() >= 3 && arg[0u] == wxT('-') && arg[1u] == wxT('-') )
+            if ( arg.length() >= 3 && arg[(size_t)0u] == wxT('-') && arg[1u] == wxT('-') )
             {
                 // a long one
                 isLong = true;
@@ -982,7 +982,7 @@ int wxCmdLineParser::Parse(bool showUsage)
 
                         // pretend that all the rest of the argument is the
                         // next argument, in fact
-                        wxString arg2 = arg[0u];
+                        wxString arg2 = arg[(size_t)0u];
                         arg2 += arg.Mid(len + 1); // +1 for leading '-'
 
                         m_data->m_arguments.insert
@@ -1324,7 +1324,7 @@ wxString wxCmdLineParser::GetUsageString() const
     // the switch char is usually '-' but this can be changed with
     // SetSwitchChars() and then the first one of possible chars is used
     wxChar chSwitch = !m_data->m_switchChars ? wxT('-')
-                                             : m_data->m_switchChars[0u];
+                                             : m_data->m_switchChars[(size_t)0u];
 
     bool areLongOptionsEnabled = AreLongOptionsEnabled();
     size_t n, count = m_data->m_options.GetCount();

@@ -363,7 +363,7 @@ char wxFTP::GetResult()
         m_lastError = wxPROTO_NOERR;
 
     // if we got here we must have a non empty code string
-    return (char)code[0u];
+    return (char)code[(size_t)0u];
 }
 
 // ----------------------------------------------------------------------------

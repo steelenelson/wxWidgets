@@ -454,7 +454,7 @@ wxFileName::DoSetPath(const wxString& pathOrig, wxPathFormat format, int flags)
 
     // 1) Determine if the path is relative or absolute.
 
-    wxChar leadingChar = path[0u];
+    wxChar leadingChar = path[(size_t)0u];
 
     switch (format)
     {
@@ -935,7 +935,7 @@ static wxString wxCreateTempImpl(
     path = dir;
 
     if ( !wxEndsWithPathSeparator(dir) &&
-            (name.empty() || !wxIsPathSeparator(name[0u])) )
+            (name.empty() || !wxIsPathSeparator(name[(size_t)0u])) )
     {
         path += wxFILE_SEP_PATH;
     }
@@ -1453,8 +1453,8 @@ bool wxFileName::Normalize(int flags,
     {
         if ( !dirs.IsEmpty() )
         {
-            wxString dir = dirs[0u];
-            if ( !dir.empty() && dir[0u] == wxT('~') )
+            wxString dir = dirs[(size_t)0u];
+            if ( !dir.empty() && dir[(size_t)0u] == wxT('~') )
             {
                 // to make the path absolute use the home directory
                 curDir.AssignDir(wxGetUserHome(dir.c_str() + 1));
@@ -1743,9 +1743,9 @@ bool wxFileName::IsAbsolute(wxPathFormat format) const
     {
         if ( !m_dirs.IsEmpty() )
         {
-            wxString dir = m_dirs[0u];
+            wxString dir = m_dirs[(size_t)0u];
 
-            if (!dir.empty() && dir[0u] == wxT('~'))
+            if (!dir.empty() && dir[(size_t)0u] == wxT('~'))
                 return true;
         }
     }
@@ -1796,7 +1796,7 @@ bool wxFileName::MakeRelativeTo(const wxString& pathBase, wxPathFormat format)
 
     // remove common directories starting at the top
     while ( !m_dirs.IsEmpty() && !fnBase.m_dirs.IsEmpty() &&
-                m_dirs[0u].IsSameAs(fnBase.m_dirs[0u], withCase) )
+                m_dirs[(size_t)0u].IsSameAs(fnBase.m_dirs[(size_t)0u], withCase) )
     {
         m_dirs.RemoveAt(0);
         fnBase.m_dirs.RemoveAt(0);
@@ -2496,7 +2496,7 @@ void wxFileName::SplitPath(const wxString& fullpathWithVolume,
             // special VMS hack: remove the initial bracket
             if ( format == wxPATH_VMS )
             {
-                if ( (*pstrPath)[0u] == wxT('[') )
+                if ( (*pstrPath)[(size_t)0u] == wxT('[') )
                     pstrPath->erase(0, 1);
             }
         }
@@ -2619,7 +2619,7 @@ wxFileName wxFileName::URLToFileName(const wxString& url)
     // file urls either start with a forward slash (local harddisk),
     // otherwise they have a servername/sharename notation,
     // which only exists on msw and corresponds to a unc
-    if ( path.length() > 1 && (path[0u] == wxT('/') && path [1u] != wxT('/')) )
+    if ( path.length() > 1 && (path[(size_t)0u] == wxT('/') && path [1u] != wxT('/')) )
     {
         path = path.Mid(1);
     }

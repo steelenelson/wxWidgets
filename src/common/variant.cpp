@@ -769,7 +769,7 @@ bool wxVariantDataChar::Read(wxInputStream& str)
 
 bool wxVariantDataChar::Read(wxString& str)
 {
-    m_value = str[0u];
+    m_value = str[(size_t)0u];
     return true;
 }
 

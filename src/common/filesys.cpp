@@ -578,7 +578,7 @@ bool wxFileSystem::FindFileInPath(wxString *pStr,
 
     wxString name;
     // skip path separator in the beginning of the file name if present
-    if ( wxIsPathSeparator(basename[0u]) )
+    if ( wxIsPathSeparator(basename[(size_t)0u]) )
         name = basename.substr(1);
     else
         name = basename;

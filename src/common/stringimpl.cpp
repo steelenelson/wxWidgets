@@ -350,7 +350,7 @@ bool wxStringImpl::Alloc(size_t nLen)
       pData->nDataLength = 0;
       pData->nAllocLength = nLen;
       m_pchData = pData->data();  // data starts after wxStringData
-      m_pchData[0u] = wxT('\0');
+      m_pchData[(size_t)0u] = wxT('\0');
     }
     else if ( pData->IsShared() ) {
       pData->Unlock();                // memory not freed because shared

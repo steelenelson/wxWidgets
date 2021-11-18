@@ -929,7 +929,7 @@ bool wxFileConfig::DoWriteString(const wxString& key, const wxString& szValue)
     else
     {
         // writing an entry check that the name is reasonable
-        if ( strName[0u] == wxCONFIG_IMMUTABLE_PREFIX )
+        if ( strName[(size_t)0u] == wxCONFIG_IMMUTABLE_PREFIX )
         {
             wxLogError( _("Config entry name cannot start with '%c'."),
                         wxCONFIG_IMMUTABLE_PREFIX);

@@ -153,7 +153,7 @@ void wxFileTypeInfo::VarArgInit(const wxString *mimeType,
 
 
 wxFileTypeInfo::wxFileTypeInfo(const wxArrayString& sArray)
-    : m_mimeType(sArray[0u])
+    : m_mimeType(sArray[(size_t)0u])
     , m_openCmd( sArray[1u])
     , m_printCmd(sArray[2u])
     , m_desc(    sArray[3u])

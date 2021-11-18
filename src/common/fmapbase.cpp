@@ -630,7 +630,7 @@ wxFontMapperBase::NonInteractiveCharsetToEncoding(const wxString& charset)
         // discard the optional quotes
         if ( !cs.empty() )
         {
-            if ( cs[0u] == wxT('"') && cs.Last() == wxT('"') )
+            if ( cs[(size_t)0u] == wxT('"') && cs.Last() == wxT('"') )
             {
                 cs = wxString(cs.c_str(), cs.length() - 1);
             }

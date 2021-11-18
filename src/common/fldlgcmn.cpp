@@ -349,7 +349,7 @@ static wxString wxDefaultFileSelector(bool load,
     wxString ext;
     if ( !extension.empty() )
     {
-        if ( extension[0u] == wxT('.') )
+        if ( extension[(size_t)0u] == wxT('.') )
             ext = extension.substr(1);
         else
             ext = extension;
